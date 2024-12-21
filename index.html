@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhà Hàng Thu Viên</title>
+    <style>
+      /* CSS Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+
+      header {
+        background-color: pink;
+        color: black;
+        padding: 15px;
+        text-align: center;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      nav ul li {
+        display: inline;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+
+      section {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 1000px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+      }
+
+      .category {
+        margin-bottom: 20px;
+      }
+
+      .dish {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .dish img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      form input,
+      form textarea,
+      form button {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      form button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      form button:hover {
+        background-color: #45a049;
+      }
+
+      footer {
+        background-color: pink;
+        color: black;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      #response-message {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+
+      .cart-summary {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+      }
+
+      .cart-summary p {
+        font-size: 18px;
+      }
+
+      .cart-summary button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .cart-summary button:hover {
+        background-color: #45a049;
+      }
+
+      .cart-items {
+        margin-top: 20px;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+
+      .cart-item button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .cart-item button:hover {
+        background-color: darkred;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <h1>Nhà Hàng Thu Viên</h1>
+      <nav>
+        <ul>
+          <li><a href="#menu">Thực Đơn</a></li>
+          <li><a href="#feedback">Phản Hồi</a></li>
+          <li><a href="#about">Giới Thiệu</a></li>
+          <li><a href="#cart">Giỏ Hàng</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu">
+      <h2>Thực Đơn</h2>
+      <div class="category">
+        <h3>Ăn Sáng</h3>
+        <div class="dish">
+          <img
+            src="https://cdn.tgdd.vn/2020/10/CookProduct/0.-1200x674.jpg"
+            alt="Bánh Mì"
+          />
+          <div>
+            <h4>Bánh Mì</h4>
+            <p><strong>Giá:</strong> 20,000 VND</p>
+            <p>
+              <strong>Đặc điểm:</strong> Bánh mì thơm ngon với nhân đa dạng.
+            </p>
+            <p><strong>Giờ phục vụ:</strong> 6:00 - 9:00</p>
+            <button onclick="addToCart('Bánh Mì', 20000)">
+              Thêm vào Giỏ Hàng
+            </button>
+          </div>
+        </div>
+        <div class="dish">
+          <img
+            src="https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/Knms/gia-dung/thanh-pham.jpg"
+            alt="Xôi"
+          />
+          <div>
+            <h4>Xôi</h4>
+            <p><strong>Giá:</strong> 15,000 VND</p>
+            <p>
+              <strong>Đặc điểm:</strong> Xôi có hương vị dẻo, thơm, có thể mặn
+              hoặc ngọt.
+            </p>
+            <p><strong>Giờ phục vụ:</strong> 6:00 - 9:00</p>
+            <button onclick="addToCart('Xôi', 15000)">Thêm vào Giỏ Hàng</button>
+          </div>
+        </div>
+        <div class="dish">
+          <img
+            src="https://bunchasinhtu.vn/wp-content/uploads/2021/05/DSC_0489-1-scaled.webp"
+            alt="Bún Chả"
+          />
+          <div>
+            <h4>Bún Chả</h4>
+            <p><strong>Giá:</strong> 35,000 VND</p>
+            <p>
+              <strong>Đặc điểm:</strong> Bún chả có hương vị đậm đà, kết hợp
+              giữa vị ngọt của thịt nướng và chua, mặn của nước mắm.
+            </p>
+            <p><strong>Giờ phục vụ:</strong> 6:00 - 9:00</p>
+            <button onclick="addToCart('Bún Chả', 35000)">
+              Thêm vào Giỏ Hàng
+            </button>
+          </div>
+        </div>
+        <div class="dish">
+          <img
+            src="https://file.hstatic.net/1000394081/article/bun-dau-mam-tom-thap-cam_2321472f6d634b1192e171c5e659e187.jpg"
+            alt="Bún Đậu Mắm Tôm"
+          />
+          <div>
+            <h4>Bún Đậu Mắm Tôm</h4>
+            <p><strong>Giá:</strong> 55,000 VND</p>
+            <p>
+              <strong>Đặc điểm:</strong> Bún đậu mắm tôm có hương vị đậm đà, kết
+              hợp giữa bún mềm, đậu phụ chiên giòn và mắm tôm thơm nồng.
+            </p>
+            <p><strong>Giờ phục vụ:</strong> 19:00 - 22:00</p>
+            <button onclick="addToCart('Bún Đậu Mắm Tôm', 55000)">
+              Thêm vào Giỏ Hàng
+            </button>
+          </div>
+        </div>
+        <div class="dish">
+          <img
+            src="https://mms.img.susercontent.com/vn-11134513-7r98o-lsvbjmf8pm8488@resize_ss1242x600!@crop_w1242_h600_cT"
+            alt="Cơm Tấm"
+          />
+          <div>
+            <h4>Cơm Tấm</h4>
+            <p><strong>Giá:</strong> 55,000 VND</p>
+            <p>
+              <strong>Đặc điểm:</strong> Cơm tấm có hương vị thơm ngon, kết hợp
+              giữa cơm dẻo, sườn nướng và nước mắm chua ngọt.
+            </p>
+            <p><strong>Giờ phục vụ:</strong> 19:00 - 22:00</p>
+            <button onclick="addToCart('Cơm Tấm', 55000)">
+              Thêm vào Giỏ Hàng
+            </button>
+          </div>
+        </div>
+        <div class="dish">
+          <img
+            src="https://tiki.vn/blog/wp-content/uploads/2023/07/thumb-12.jpg"
+            alt="Phở Bò"
+          />
+          <div>
+            <h4>Phở Bò</h4>
+            <p><strong>Giá:</strong> 40,000 VND</p>
+            <p>
+              <strong>Đặc điểm:</strong> Nước dùng đậm đà, thịt bò tươi ngon.
+            </p>
+            <p><strong>Giờ phục vụ:</strong> 6:00 - 10:00</p>
+            <button onclick="addToCart('Phở Bò', 40000)">
+              Thêm vào Giỏ Hàng
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback">
+      <h2>Phản Hồi</h2>
+      <form id="feedback-form">
+        <label for="name">Tên khách hàng:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Số điện thoại:</label>
+        <input type="tel" id="phone" name="phone" />
+
+        <label for="message">Phản hồi:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Gửi Phản Hồi</button>
+      </form>
+      <div id="response-message"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>Giới Thiệu</h2>
+      <p>
+        Nhà hàng Thu Viên tự hào mang đến cho quý khách hàng những món ăn ngon,
+        phong phú và chất lượng cao. Đội ngũ nhân viên tận tâm và không gian ấm
+        cúng sẽ mang đến cho bạn trải nghiệm tuyệt vời.
+      </p>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart">
+      <h2>Giỏ Hàng</h2>
+      <div id="cart-summary" class="cart-summary">
+        <p><strong>Tổng tiền: </strong><span id="total-price">0</span> VND</p>
+        <button onclick="checkout()">Thanh Toán</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Nhà Hàng Thu Viên. All rights reserved.</p>
+    </footer>
+
+    <script>
+      let cart = [];
+
+      function addToCart(dishName, price) {
+        cart.push({ name: dishName, price: price });
+        updateCartSummary();
+        renderCartItems();
+      }
+
+      function removeFromCart(dishName) {
+        cart = cart.filter((item) => item.name !== dishName);
+        updateCartSummary();
+        renderCartItems();
+      }
+
+      function updateCartSummary() {
+        let totalPrice = cart.reduce((total, item) => total + item.price, 0);
+        document.getElementById("total-price").textContent = totalPrice;
+      }
+
+      function renderCartItems() {
+        const cartItemsDiv = document.getElementById("cart-items");
+        cartItemsDiv.innerHTML = ""; // Clear previous items
+        cart.forEach((item) => {
+          const cartItem = document.createElement("div");
+          cartItem.classList.add("cart-item");
+          cartItem.innerHTML = `
+                    <span>${item.name} - ${item.price} VND</span>
+                    <button onclick="removeFromCart('${item.name}')">Xóa</button>
+                `;
+          cartItemsDiv.appendChild(cartItem);
+        });
+      }
+
+      function checkout() {
+        if (cart.length === 0) {
+          alert("Giỏ hàng của bạn hiện tại không có món nào.");
+        } else {
+          alert("Thanh toán thành công!");
+          cart = [];
+          updateCartSummary();
+          renderCartItems();
+        }
+      }
+
+      // Handle feedback form submission
+      document
+        .getElementById("feedback-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          // Display success message
+          const responseMessage = document.getElementById("response-message");
+          responseMessage.textContent = `Cảm ơn ${name} đã gửi phản hồi! Chúng tôi sẽ liên hệ qua email ${email}.`;
+          responseMessage.style.color = "green";
+
+          // Reset form
+          document.getElementById("feedback-form").reset();
+        });
+    </script>
+  </body>
+</html>
